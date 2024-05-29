@@ -16,7 +16,6 @@ import assets from "metalsmith-static-files";
 import metadata from "@metalsmith/metadata";
 import prism from "metalsmith-prism";
 import * as marked from "marked";
-import ghpages from "gh-pages"
 
 // ESM does not currently import JSON modules by default.
 // Ergo we'll JSON.parse the file manually
@@ -131,10 +130,6 @@ ms.build( ( err ) => {
 
   console.log( `Build success in ${ ( ( performance.now() - t1 ) / 1000 ).toFixed( 1 ) }s` );
 
-  if(isProduction)
-  {
-    ghpages.publish('build', function(err) {});
-  }
   if ( ms.watch() ) {
     if ( devServer ) {
       t1 = performance.now();
