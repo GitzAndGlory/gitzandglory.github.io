@@ -131,8 +131,10 @@ ms.build( ( err ) => {
 
   console.log( `Build success in ${ ( ( performance.now() - t1 ) / 1000 ).toFixed( 1 ) }s` );
 
-
-  ghpages.publish('build', function(err) {});
+  if(isProduction)
+  {
+    ghpages.publish('build', function(err) {});
+  }
   if ( ms.watch() ) {
     if ( devServer ) {
       t1 = performance.now();
