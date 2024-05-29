@@ -16,6 +16,7 @@ import assets from "metalsmith-static-files";
 import metadata from "@metalsmith/metadata";
 import prism from "metalsmith-prism";
 import * as marked from "marked";
+import ghpages from "gh-pages"
 
 // ESM does not currently import JSON modules by default.
 // Ergo we'll JSON.parse the file manually
@@ -118,7 +119,7 @@ function msBuild() {
       } )
     )
 
-    .use( isProduction ? htmlMinifier() : noop );
+    .use( isProduction ? htmlMinifier() : noop )
 }
 
 const ms = msBuild();
@@ -127,7 +128,11 @@ ms.build( ( err ) => {
     throw err;
   }
   /* eslint-disable no-console */
+
   console.log( `Build success in ${ ( ( performance.now() - t1 ) / 1000 ).toFixed( 1 ) }s` );
+
+
+  ghpages.publish('build', function(err) {});
   if ( ms.watch() ) {
     if ( devServer ) {
       t1 = performance.now();
@@ -144,3 +149,4 @@ ms.build( ( err ) => {
     }
   }
 } );
+
