@@ -28,8 +28,8 @@ header .container {
   justify-content: space-between;
 }
 .home-link img {
-  width: 60px;
-  height: auto;
+  height: 60px;
+  width: auto;
 }
 
 /* main menu */
