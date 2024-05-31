@@ -38,11 +38,14 @@
     "marked": "^11.2.0",
     "metalsmith": "^2.6.2",
     "metalsmith-debug-ui": "^0.3.2",
+    "metalsmith-filemetadata": "^4.0.0",
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",
     "metalsmith-metadata": "^0.0.4",
     "metalsmith-prism": "^4.2.2",
-    "metalsmith-static-files": "^0.3.0"
+    "metalsmith-sitemap": "^1.2.2",
+    "metalsmith-static-files": "^0.3.0",
+    "metalsmith-taxonomy": "^0.6.0"
   },
   "engines": {
     "node": ">=18.0.0"

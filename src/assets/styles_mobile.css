@@ -1,0 +1,10 @@
+@media only screen and (max-width: 600px) {
+  .home-link{
+    font-size: 7vw;
+  }
+
+  .blog-list{
+    padding-left: 0;
+  }
+}
+

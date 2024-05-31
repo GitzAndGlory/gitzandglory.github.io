@@ -16,6 +16,8 @@ import assets from "metalsmith-static-files";
 import metadata from "@metalsmith/metadata";
 import prism from "metalsmith-prism";
 import * as marked from "marked";
+import sitemap from "metalsmith-sitemap"
+
 
 // ESM does not currently import JSON modules by default.
 // Ergo we'll JSON.parse the file manually
@@ -46,6 +48,8 @@ const thisYear = () => new Date().getFullYear();
 // Define engine options for the inplace and layouts plugins
 const templateConfig = {
   directory: "layouts",
+  engine: "nunjucks",
+  default: "simple.njk",
   engineOptions: {
     path: [ "layouts" ],
     filters: {
@@ -103,6 +107,7 @@ function msBuild() {
     .use( permalinks() )
 
     .use( layouts( templateConfig ) )
+    .use(sitemap({hostname: "https://gitzandglory.com"}))
 
     .use(
       prism( {
