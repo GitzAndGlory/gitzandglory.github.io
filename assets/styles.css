@@ -7,13 +7,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background:#090909
+  background:#090909;
 }
+
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
 }
 .container {
-  max-width: 1024px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -94,12 +95,21 @@ main {
   color: #e8e8e8;
 }
 
+.image-container{
+  text-align: center;
+}
+
+.image-container img{
+  min-width: 300px;
+}
+
 img {
-  display: block;
+  display: inline;
   width: 100%;
   height: auto;
-  max-width: 500px;
+  max-width: 30%;
 }
+
 img[src$='#full-width'] { 
   max-width: 100%;
 }
@@ -110,7 +120,9 @@ footer {
   margin-top: auto;
 }
 .blog-image {
+  display: block;
   margin: 40px 0;
+  max-width: 100%;
 }
 
 pre[class*="language-"] {
