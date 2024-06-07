@@ -1,13 +1,12 @@
 {
-  "name": "metalsmith-blog-starter",
+  "name": "gitzandglory",
   "version": "1.0.0",
-  "description": "A simple Metalsmith blog starter",
+  "description": "A blog about funy green plastic men.",
   "type": "module",
   "keywords": [
-    "metalsmith",
-    "starter"
+    "blog"
   ],
-  "author": "werner@glinka.co",
+  "author": "gitzandglory@gmail.com",
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development DEBUG=@metalsmith* node metalsmith.js",
