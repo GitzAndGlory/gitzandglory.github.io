@@ -45,7 +45,7 @@ header .container {
   color: #4E9F3D; 
   font-family: 'Blood Crow';
   text-decoration: none;
-  font-size: 4.5vw;
+  font-size: 3vw;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -63,10 +63,15 @@ header .container {
 }
 
 /* main menu */
+
+.main-menu {
+  display: none;
+}
+
 .main-menu ul {
   display: flex;
-  justify-content: flex-end;
-  list-style: none;
+  justify-content: space-between;
+  align-items: center;
 }
 .main-menu li {
   padding: 0 20px;
@@ -79,6 +84,76 @@ header .container {
   color: #D8E9A8;
   text-decoration: underline;
 }
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.toggle-button .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+.toggle-button:hover .bar {
+  background-color: #D8E9A8;
+}
+
+.main-menu-links {
+  display: none
+}
+
+.main-menu-links ul {
+  list-style: none;
+}
+
+.main-menu-links li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .main-menu {
+    display: block;
+  }
+
+  .main-menu-links {
+    display: flex;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+}
+
+.main-menu-links.active{
+  display: flex;
+  flex-direction: column;
+  background-color: #191A19;
+}
+
+.main-menu-links.active ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-menu-links.active li {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: larger;
+}
+
+.main-menu.active {
+  display: block;
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  width: 100%;
+}
+
 
 /* active nav links */
 .home .home,
