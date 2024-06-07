@@ -3,22 +3,35 @@
     <div class="brand">
       <a class="home-link" href="/">Gitz and Glory</a>
     </div>
+    <a href="javascript:void(0);" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
     <nav class="main-menu">
-      <ul>
-        {% for menuItem in nav.menu %}
-          <li>
-            <div>
-              {% if menuItem.url === "/" %}
-                {% set path = "home" %}
-              {% else %}
-                {% set path = menuItem.url %}
-              {% endif %}
-              <a href={{ menuItem.url}} class="{{ path | trimSlashes }}">{{ menuItem.label }}</a>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
+      <div class="main-menu-links">
+        <ul>
+          {% for menuItem in nav.menu %}
+            <li>
+              <div>
+                {% if menuItem.url === "/" %}
+                  {% set path = "home" %}
+                {% else %}
+                  {% set path = menuItem.url %}
+                {% endif %}
+                <a href={{ menuItem.url}} class="{{ path | trimSlashes }}">{{ menuItem.label }}</a>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </nav>
 
   </div>
+  <script>
+    document.querySelector('.toggle-button').addEventListener('click', () => {
+        document.querySelector('.main-menu').classList.toggle('active');
+        document.querySelector('.main-menu-links').classList.toggle('active');
+    });
+  </script>
 </header>

@@ -41,7 +41,6 @@
     "metalsmith-filemetadata": "^4.0.0",
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",
-    "metalsmith-metadata": "^0.0.4",
     "metalsmith-prism": "^4.2.2",
     "metalsmith-sitemap": "^1.2.2",
     "metalsmith-static-files": "^0.3.0",
