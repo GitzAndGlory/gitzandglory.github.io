@@ -4,6 +4,11 @@
       "label": "Home",
       "url": "/",
       "bodyClass": "home"
+    },
+    {
+      "label": "About",
+      "url": "/about-me",
+      "bodyClass": "home"
     }
   ]
 
