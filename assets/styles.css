@@ -268,10 +268,10 @@ pre[class*="language-javascript"]:after {
 }
 
 blockquote {
-  border-left: 4px solid red;
-  background: #f8f8f8;
-  padding: 20px;
+  border-left: 4px solid #4E9F3D;
+  padding: 10px;
   margin: 0;
+  font-style: italic;
 }
 
 .gitter-invite {
