@@ -6,6 +6,11 @@
       "bodyClass": "home"
     },
     {
+      "label": "Archive",
+      "url": "/blog/page/1",
+      "bodyClass": "home"
+    },
+    {
       "label": "About",
       "url": "/about-me",
       "bodyClass": "home"

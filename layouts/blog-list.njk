@@ -1,0 +1,15 @@
+
+{% extends "layout.njk" %}
+
+{% block body %}
+<div class="container">
+  <h1>Archive - Page {{pagination.num}}</h1>
+  {% include "partials/pagination.njk"%}
+  <ul class="blog-list">
+    {% for blogPost in pagination.files %}
+      {% include "partials/blog-post-item.njk" %}
+    {% endfor %}
+  </ul>
+  {% include "partials/pagination.njk"%}
+</div>
+{% endblock %}

@@ -17,6 +17,10 @@ featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-
   Gear Guts was working on looting a busted warp drive in an abandoned ork fortress, when he and his boyz were attacked by beakies.
+tags:
+  - killteam
+  - narrative
+  - orks
 ---
 <blockquote>
 "Hoomies!" shouted little Stibgrit in his squeaky voice, just before Skullstompa's fist smashed into him. "Dere ain't been no hoomies 'ere fer lotsa days," the ork muttered, snappin' the runt's legs like twigs. "Yoo sure 'bout dat?" grunted Nogrok, fiddlin' with his Deffgun. Gear Guts popped his head up from under the busted warp engine. "Wot are you gits doin'?"

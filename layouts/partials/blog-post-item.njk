@@ -1,0 +1,15 @@
+<li>
+    <a href="{{ blogPost.permalink }}">
+        <h2>{{ blogPost.blogTitle }}</h2>
+        <time datetime="{{ blogPost.date }}">{{ blogPost.date | blogDate }}</time>
+        <img class="blog-image" src="{{ blogPost.image }}" alt="{{ blogPost.blogTitle }}" />
+        <div>{{ blogPost.excerpt }}</div>
+    </a>
+    {% if blogPost.tags %}
+    <p class="tags">Tags:
+        {% for tag in blogPost.tags %}
+        <a class="tag" href="/tags/{{ tag.name }}">{{ tag.name }}</a>
+        {% endfor %}
+    </p>
+    {% endif %}
+</li>

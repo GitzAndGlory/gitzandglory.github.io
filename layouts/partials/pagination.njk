@@ -1,0 +1,7 @@
+  <div class="pagination">
+    <a href="/blog/page/1">first</a>
+    {% for page in pagination.getPages(3)%}
+      <a href="/blog/page/{{page.pagination.num}}">{{page.pagination.num}}</a>
+    {% endfor%}
+    <a href="/blog/page/{{ pagination.pages.length }}">Last</a>
+  </div>

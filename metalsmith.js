@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import { performance } from "perf_hooks";
 import browserSync from "browser-sync";
 import { fileURLToPath } from "node:url";
@@ -16,42 +14,42 @@ import assets from "metalsmith-static-files";
 import metadata from "@metalsmith/metadata";
 import prism from "metalsmith-prism";
 import * as marked from "marked";
-import sitemap from "metalsmith-sitemap"
-
-
-// ESM does not currently import JSON modules by default.
-// Ergo we'll JSON.parse the file manually
+import sitemap from "metalsmith-sitemap";
+import tags from "metalsmith-tags";
+import pagination from "metalsmith-pagination";
 import * as fs from "fs";
 
-const { dependencies } = JSON.parse( fs.readFileSync( "./package.json" ) );
+const { dependencies } = JSON.parse(fs.readFileSync("./package.json"));
 
-/* eslint-disable no-underscore-dangle */
-const __dirname = dirname( fileURLToPath( import.meta.url ) );
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === "production";
 
-// functions to extend Nunjucks environment
-const spaceToDash = ( string ) => string.replace( /\s+/g, "-" );
-const condenseTitle = ( string ) => string.toLowerCase().replace( /\s+/g, "" );
-const UTCdate = ( date ) => date.toUTCString( "M d, yyyy" );
-const blogDate = ( string ) =>
-  new Date( string ).toLocaleString( "en-US", { year: "numeric", month: "long", day: "numeric" } );
-const trimSlashes = ( string ) => string.replace( /(^\/)|(\/$)/g, "" );
-const md = ( mdString ) => {
+const spaceToDash = (string) => string.replace(/\s+/g, "-");
+const condenseTitle = (string) => string.toLowerCase().replace(/\s+/g, "");
+const UTCdate = (date) => date.toUTCString("M d, yyyy");
+const blogDate = (string) => {
   try {
-    return marked.parse( mdString, { mangle: false, headerIds: false } );
-  } catch ( e ) {
+    return new Date(string).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  } catch (e) {
+    return "Unknown date";
+  }
+};
+const trimSlashes = (string) => string.replace(/(^\/)|(\/$)/g, "");
+const md = (mdString) => {
+  try {
+    return marked.parse(mdString, { mangle: false, headerIds: false });
+  } catch (e) {
     return mdString;
   }
 };
 const thisYear = () => new Date().getFullYear();
 
-// Define engine options for the inplace and layouts plugins
 const templateConfig = {
   directory: "layouts",
   engine: "nunjucks",
   default: "simple.njk",
   engineOptions: {
-    path: [ "layouts" ],
+    path: ["layouts"],
     filters: {
       spaceToDash,
       condenseTitle,
@@ -64,91 +62,105 @@ const templateConfig = {
   },
 };
 
-function noop() { };
-// to use a plugin conditionally, use this pattern:
-// .use( isProduction ? htmlMinifier() : noop ) )
+function noop() {}
 
 let devServer = null;
 let t1 = performance.now();
 
 function msBuild() {
-  return Metalsmith( __dirname )
-    .clean( true )
-    .watch( isProduction ? false : [ "src", "layouts" ] )
-    .source( "./src/content" )
-    .destination( "./build" )
-    .metadata( {
+  return Metalsmith(__dirname)
+    .clean(true)
+    .watch(isProduction ? false : ["src", "layouts"])
+    .source("./src/content")
+    .destination("./build")
+    .metadata({
       msVersion: dependencies.metalsmith,
       nodeVersion: process.version,
-    } )
-
-    .use( isProduction ? noop : drafts() )
-
+    })
+    .use(isProduction ? noop : drafts())
     .use(
-      metadata( {
+      metadata({
         site: "src/content/data/site.json",
         nav: "src/content/data/navigation.json",
-      } )
+      })
     )
-
     .use(
-      collections( {
+      collections({
         blog: {
           pattern: "blog/*.md",
           sortBy: "date",
           reverse: true,
           limit: 10,
         },
-      } )
+        tags: {
+        }
+      })
     )
-
-    .use( markdown() )
-
-    .use( permalinks() )
-
-    .use( layouts( templateConfig ) )
-    .use(sitemap({hostname: "https://gitzandglory.com"}))
-
+    .use(pagination({
+    'collections.blog': {
+        perPage: 5,
+        layout: 'blog-list.njk',
+        first: 'index.html',
+        path: 'blog/page/:num/index.html',
+        pageMetadata: {
+          seo: {
+            title: "Archive - Gitz and Glory"
+          }
+        }
+      }
+    }))
     .use(
-      prism( {
+      tags({
+        handle: 'tags',
+        layout: 'tag.njk',
+        path: 'tags/:tag/index.html',
+        sortBy: 'date',
+        reverse: true,
+      })
+    )
+    .use(markdown())
+    .use(permalinks())
+    .use(layouts(templateConfig))
+    .use(
+      prism({
         lineNumbers: true,
         decode: true,
-      } )
+      })
     )
-
     .use(
-      assets( {
+      assets({
         source: "src/assets/",
         destination: "assets/",
-      } )
+      })
     )
-
-    .use( isProduction ? htmlMinifier() : noop )
+    .use(isProduction ? htmlMinifier() : noop)
+    .use(
+      sitemap({
+        hostname: "https://gitzandglory.com",
+      })
+    );
 }
 
 const ms = msBuild();
-ms.build( ( err ) => {
-  if ( err ) {
+ms.build((err) => {
+  if (err) {
     throw err;
   }
-  /* eslint-disable no-console */
+  console.log(`Build success in ${(performance.now() - t1) / 1000}s`);
 
-  console.log( `Build success in ${ ( ( performance.now() - t1 ) / 1000 ).toFixed( 1 ) }s` );
-
-  if ( ms.watch() ) {
-    if ( devServer ) {
+  if (ms.watch()) {
+    if (devServer) {
       t1 = performance.now();
       devServer.reload();
     } else {
       devServer = browserSync.create();
-      devServer.init( {
+      devServer.init({
         host: "localhost",
         server: "./build",
         port: 3000,
         injectChanges: false,
         reloadThrottle: 0,
-      } );
+      });
     }
   }
-} );
-
+});

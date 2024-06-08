@@ -17,6 +17,10 @@ featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-
   We started a new Kill Team 2021 campaign in our gaming club and I figured I would write about these games in my very own and very new blog.
+tags:
+  - killteam
+  - narrative
+  - blooded
 ---
 
 We started a new Kill Team 2021 campaign in our gaming club and I figured I would write about these games in my very own and very new blog. For those unfamiliar, Kill Team is a fast-paced skirmish game set in the Warhammer 40,000 universe, where you fight small battles with about 6 to 14 miniatures for each team.

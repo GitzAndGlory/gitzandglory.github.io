@@ -17,6 +17,11 @@ featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-
   Spanners and Lootas in Kill Team. Probably not a good idea.
+
+tags:
+  - killteam
+  - narrative
+  - orks
 ---
 
 Ork Meks have always been a soft spot of mine, and the junkyard aesthetic is probably one of my favorite parts of the entire Orks range (Still need to get out the Stompa for a game of 40k using the Dread Mob). In Kill Team, however, there is no such thing as a Dreadnought, not even a Killa Kan. Obviously, we then need to play the Greenskins Speshulists Fire Team and, of course, use my favorite weapon in all of 40k, the Kustom Mega-Blasta.

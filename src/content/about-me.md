@@ -17,3 +17,7 @@ This blog is a little project of mine to write about Warhammer and brush up on s
 I'm Daniel, and I started my wargaming journey in January 2023 when I bought about 24 used Assault on Black Reach Ork Boyz from eBay. Now, I have at least 3000 points of painted Orks and am on my way to chase Da Bad Moon in Age of Sigmar. I've realized that playing wargames is pretty fun if you find the right people and the right games.
 
 Greenskins are just funny, man. They remind me that this is just a game, and we should all just be having fun.
+
+<blockquote>
+What doth life? Are we just fleshy blips in some meaningless stew of cosmic oblivion? Or is it vice-reversa?
+</blockquote>

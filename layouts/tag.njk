@@ -1,0 +1,17 @@
+
+{% extends "layout.njk" %}
+
+{% block body %}
+  <div class="container">
+    <h1>Posts tagged "{{tag}}"</h1>
+    <ul class="blog-list">
+      {% if collections.tags and collections.tags[tag] %}
+      {% for blogPost in collections.tags[tag] %}
+      {% include "partials/blog-post-item.njk"%}
+      {% endfor %}
+      {% else %}
+      <li>No posts found for this tag.</li>
+      {% endif %}
+    </ul>
+  </div>
+{% endblock %}

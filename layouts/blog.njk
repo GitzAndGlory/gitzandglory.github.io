@@ -2,24 +2,15 @@
 
 {% block body %}
   <div class="container">
-    <h1>Blogposts</h1>
 
     {{ contents | safe }}
 
+    <h1>Latest Blogposts</h1>
     <ul class="blog-list">
     {% for blogPost in collections.blog %}
-      
-      <li>
-        <a href="/{{ blogPost.permalink }}">
-          <h2>{{ blogPost.blogTitle }}</h2>
-          <time datetime="{{ blogPost.date }}">{{ blogPost.date | blogDate }}</time>
-          <img class="blog-image" src="{{ blogPost.image }}" alt="{{ blogPost.blogTitle }}" />
-          <div>{{ blogPost.excerpt }}</div>
-        </a>
-      </li>
-
-    {% else %}
-      <p class="error-message">No blog posts found</p>
+    {% if loop.index < 3%}
+      {% include "partials/blog-post-item.njk" %}
+    {% endif %}
     {% endfor %}
     </ul>
   </div>
