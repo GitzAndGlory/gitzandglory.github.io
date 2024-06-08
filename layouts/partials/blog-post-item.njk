@@ -1,5 +1,5 @@
 <li>
-    <a href="{{ blogPost.permalink }}">
+    <a href="/{{ blogPost.permalink }}">
         <h2>{{ blogPost.blogTitle }}</h2>
         <time datetime="{{ blogPost.date }}">{{ blogPost.date | blogDate }}</time>
         <img class="blog-image" src="{{ blogPost.image }}" alt="{{ blogPost.blogTitle }}" />
