@@ -188,7 +188,7 @@ img {
 }
 
 img[src$='#full-width'] { 
-  max-width: 100%;
+  max-width: 80%;
 }
 footer {
   background: #191A19;
