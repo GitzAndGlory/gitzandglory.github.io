@@ -7,6 +7,8 @@ seo:
   description: "Whether you came here on purpose or a Warpstorm brought you here, thanks for stopping by! This is a (mainly) Warhammer blog by me, Daniel, who likes the colour green and collects Orks in Warhammer 40k. Here, I talk about my wargaming experiences, whether it’s painting or playing with toy soldiers."
   socialImage: "/assets/images/metalsmith-starter-social.png"
   canonicalOverwrite: ""
+
+permalink: ""
 ---
 
 

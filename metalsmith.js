@@ -104,7 +104,7 @@ function msBuild() {
         path: 'blog/page/:num/index.html',
         pageMetadata: {
           seo: {
-            title: "Archive - Gitz and Glory"
+            title: "Gitz and Glory - Archive"
           }
         }
       }
