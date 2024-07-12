@@ -17,6 +17,7 @@ import * as marked from "marked";
 import sitemap from "metalsmith-sitemap";
 import tags from "metalsmith-tags";
 import pagination from "metalsmith-pagination";
+import readingtime from "metalsmith-reading-time"
 import * as fs from "fs";
 
 const { dependencies } = JSON.parse(fs.readFileSync("./package.json"));
@@ -84,6 +85,7 @@ function msBuild() {
         nav: "src/content/data/navigation.json",
       })
     )
+    .use(readingtime())
     .use(
       collections({
         blog: {
