@@ -5,7 +5,7 @@ draft: false
 
 seo:
   title: "Building a Better Battlefield: My Journey to a Custom Mordheim Board"
-  description: "Last week, I had a lot of free time, so I improved my fantasy terrain for an upcoming Warhammer meetup with my friends. One thing I always wanted to have is a nice playmat. My buddy and I always talked about getting one of those nice mousepad material mats, but we never ended up buying one until now, being poor students and such. After binge-watching BillMakingStuff on YouTube, I stumbled upon his Yoga Mat Board video. So, I ordered some mats from Amazon, stole some sand from the local playground, and got to work."
+  description: "Last week, I had a lot of free time, so I improved my fantasy terrain for an upcoming Warhammer meetup with my friends. One thing I always wanted to have is a nice playmat. After binge-watching BillMakingStuff on YouTube, I stumbled upon his Yoga Mat Board video. So, I ordered some mats from Amazon, stole some sand from the local playground, and got to work."
   socialImage: "/assets/images/blog-images/board_build/blog-image.jpg"
   canonicalOverwrite: ""
 
@@ -52,7 +52,7 @@ After letting the PVA dry, it was time to apply the crustard. Crustard is, as Bi
 
 After putting on the crustard and letting the whole thing dry, I went over it with an orangey drybrush and a homemade wash. This wash was just black and brown paint mixed with PVA glue, water, and a bit of dish soap. I slopped it on everywhere and dried that with a hairdryer because I am an impatient little grub. Afterwards, I gave the whole thing a drybrush with a yellowy off-white and was done.
 
-## Results
+## Results and a First Round of Frostgrave
 
 <div class="image-container">
 <img src="/assets/images/blog-images/board_build/final.jpg#full-width">

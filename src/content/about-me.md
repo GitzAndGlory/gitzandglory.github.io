@@ -6,9 +6,10 @@ seo:
   description: "Blog about funy green plastic men."
   socialImage: "/assets/images/metalsmith-starter-social.png"
   canonicalOverwrite: ""
+
 ---
 
-# About This Blog
+# About Gitz and Glory
 
 This blog is a little project of mine to write about Warhammer and brush up on some web development skills. I write about painting little greenskinned plastic men, pushing them around on a table, and rolling some dice. I think it's fun, and I believe everyone should at least try it. Painting miniatures isn't as daunting as you may think. And maybe I can make at least one person less scared of putting paint on their plastic.
 

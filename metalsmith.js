@@ -119,7 +119,14 @@ function msBuild() {
       })
     )
     .use(markdown())
-    .use(permalinks())
+    .use(permalinks({
+      linksets: [
+        {
+          match: { collection: 'blog' },
+          pattern: 'blog/:seo.title',
+        },
+      ],
+    }))
     .use(layouts(templateConfig))
     .use(
       prism({
