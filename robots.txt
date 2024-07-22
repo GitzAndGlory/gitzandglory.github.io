@@ -1,4 +1,3 @@
 User-agent: *
 Disallow: /tags/
-Disallow: /assets/
 Sitemap: https://gitzandglory.com/sitemap.xml
